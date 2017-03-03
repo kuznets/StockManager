@@ -1,0 +1,9 @@
+
+<% if user_signed_in? %>
+	<br>
+	<h1>Stocks list</h1>
+<%= render 'layouts/stocks_show_table' %>
+<% else %>
+	<br>
+	<h1>Stock productivity calculator</h1>
+<% end %>

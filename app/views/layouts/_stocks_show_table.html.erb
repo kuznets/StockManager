@@ -1,0 +1,27 @@
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Stock price</th>
+      <th>Interest</th>
+      <th>Duration</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stocks.each do |stock| %>
+      <tr>
+        <th scope="row"><%= stock.id %></th>
+        <td><%= stock.name %></td>
+        <td><%= number_to_currency(stock.unit_price / 100.0, 
+        unit: "", 
+        separator: ",") %></td>
+        <td><%= number_to_percentage(stock.interest, precision: 0) %></td>
+        <td><%= stock.duration %></td>
+        <td><%= link_to 'Show stock', stock_path(stock) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>

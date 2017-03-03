@@ -1,0 +1,23 @@
+	<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<a class="navbar-brand" href="#">Stock Manager</a>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav mr-auto">
+				<%= link_to 'Home', root_path, :class => 'nav-item nav-link active' %>
+				<% if user_signed_in?%>
+					<%= link_to 'New Stock', new_stock_path, :class => 'nav-item nav-link' %>
+				<% end %>
+			</div>
+			<div class="navbar-nav mt-2 mt-md-0">
+				<% if user_signed_in?%>
+					<span>Hello, <%= current_user.email %></span>
+					<%= link_to 'Logout', destroy_user_session_path, :method => 'delete', :class => 'nav-item nav-link active' %>
+				<% else %>
+					<%= link_to 'Login', new_user_session_path, :class => 'nav-item nav-link active' %>
+					<%= link_to 'Sign up', new_user_registration_path, :class => 'nav-item nav-link active' %>
+				<% end %>
+			</div>
+		</div>
+	</nav>

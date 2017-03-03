@@ -1,0 +1,47 @@
+<br>
+<p>
+  <strong>Name:</strong>
+  <%= @stock.name %>
+</p>
+ 
+<p>
+  <strong>Stock start price:</strong>
+  <%= number_to_currency(@stock.unit_price / 100.0, 
+        unit: "", 
+        separator: ",") %>
+</p>
+
+<p>
+  <strong>Interest:</strong>
+  <%= number_to_percentage(@stock.interest, precision: 0) %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @stock.duration %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @start_date %>
+</p>
+
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Year</th>
+      <th>Stock price</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @dividend_yield.each do |stock| %>
+      <tr>
+        <td><%= stock['year'] %></td>
+        <td><%= number_to_currency(stock['total'] / 100.0, 
+        unit: "", 
+        separator: ",") %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+<br>

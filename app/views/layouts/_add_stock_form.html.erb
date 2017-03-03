@@ -1,0 +1,49 @@
+<% if @stock.errors.any? %>
+<div id="error_explanation">
+  <ul>
+    <% @stock.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<br>
+<%= form_for :stock, url: stocks_path do |f| %>
+<div class="form-group row">
+  <%= f.label :'Name', class: 'col-2 col-form-label', for: 'stock-name' %>
+  <div class="col-10">
+   <%= f.text_field :name, 
+   class: 'form-control', 
+   placeholder: 'Insert stock name',  
+   id: 'stock-price' %>
+ </div>
+</div>
+<div class="form-group row">
+  <%= f.label :'Stock price', class: 'col-2 col-form-label', for: 'stock-price' %>
+  <div class="col-10">
+   <%= f.text_field :unit_price, 
+   class: 'form-control', 
+   placeholder: 'Insert stock price in the format 0,00', 
+   id: 'stock-price' %>
+ </div>
+</div>
+<div class="form-group row">
+  <%= f.label :'Interest', class: 'col-2 col-form-label', for: 'stock-interest' %>
+  <div class="col-10">
+   <%= f.text_field :interest, 
+   class: 'form-control', 
+   placeholder: 'Insert stock interest in the format 0,00',  
+   id: 'stock-interest' %>
+ </div>
+</div>
+<div class="form-group row">
+  <%= f.label :'Duration', class: 'col-2 col-form-label', for: 'stock-duration' %>
+  <div class="col-10">
+   <%= f.text_field :duration, 
+   class: 'form-control', 
+   placeholder: 'Insert duration in years',  
+   id: 'stock-duration' %>
+ </div>
+</div>
+<%= f.submit class: 'btn btn-primary'%>
+<% end %>
