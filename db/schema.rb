@@ -12,15 +12,18 @@
 
 ActiveRecord::Schema.define(version: 20170302072830) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "stocks", force: :cascade do |t|
-    t.string   "name",                 null: false
-    t.integer  "unit_price",           null: false
-    t.integer  "interest",   limit: 3, null: false
-    t.integer  "duration",   limit: 3, null: false
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.string   "name",       null: false
+    t.integer  "unit_price", null: false
+    t.integer  "interest",   null: false
+    t.integer  "duration",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.index ["user_id"], name: "index_stocks_on_user_id"
+    t.index ["user_id"], name: "index_stocks_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,7 +38,7 @@ ActiveRecord::Schema.define(version: 20170302072830) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
 end
