@@ -28,4 +28,4 @@ test:
 production:
   <<: *default
   adapter: postgresql
-  database: stock_manager
+  database: db/production.postgresql
