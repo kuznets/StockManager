@@ -15,7 +15,7 @@ development:
   adapter: postgresql
   database: stock_manager
   username: pguser
-  password:
+  password: 
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

@@ -24,4 +24,4 @@
 *.sublime-project
 *.sublime-workspace
 *.iml
-
+*.temp
